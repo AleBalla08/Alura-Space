@@ -1,4 +1,3 @@
-
 {% extends 'galeria/base.html' %} 
 {% load static %}
 
@@ -31,9 +30,9 @@
                                 <a href="{% url 'imagem' fotografias.id %}">
                                 {% if fotografias.foto == '' or fotografias.foto == null %}
                                     <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.jpg'%}" alt="foto">
-                                    {% else %}
+                                {% else %}
                                         <img class="card__imagem" src="{{fotografias.foto.url}}" alt="foto">
-                                    {% endif %}
+                                {% endif %}
                                     </a>
                               
                                     
@@ -52,9 +51,9 @@
                             </li>   
                             {% endfor %}
                             {% else %}
-                            <div class="imagem__parag">
-                                <p>Fotografias não encontradas</p>
-                            </div> 
+                                <div class="imagem__parag">
+                                    <p>Fotografias não encontradas</p>
+                                </div> 
                             {% endif %}
                         </ul>
                     </div>
