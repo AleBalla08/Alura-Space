@@ -35,4 +35,7 @@ def buscar(request):
     return render(request, 'galeria/buscar.html', {'cards':fotografias})
 
 
+def batata(self):
+    pass
+
 # Create your views here.
