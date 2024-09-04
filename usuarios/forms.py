@@ -6,6 +6,7 @@ class LoginForms(forms.Form):
             "class":"form-control",
             "placeholder":'Ex: João da Silva'
         }
+       
     ))
 
     senha=forms.CharField(label='senha', required=True, max_length=50, widget=forms.PasswordInput(
@@ -22,7 +23,9 @@ class CadastroForms(forms.Form):
             "class":"form-control",
             "placeholder":'Ex: João da Silva'
         }
+        
     ))
+    
 
     email = forms.EmailField(label='Email', required=True, max_length=50, widget=forms.EmailInput(
         attrs={
@@ -52,11 +55,10 @@ class CadastroForms(forms.Form):
 
         if nome:
             nome = nome.strip()
-            if "k" in nome:
-                raise forms.ValidationError("Não é possível inserir espaços dentro do campo usuário")
-            else:
+            if " " not in nome:
                 return nome
-            
+            else:
+                raise forms.ValidationError("Não é possível colocar espaços neste campo") 
    
             
     
