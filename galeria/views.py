@@ -34,6 +34,4 @@ def buscar(request):
 
     return render(request, 'galeria/buscar.html', {'cards':fotografias})
 
-
-
 # Create your views here.
