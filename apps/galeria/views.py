@@ -36,10 +36,8 @@ def buscar(request):
     return render(request, 'galeria/buscar.html', {'cards':fotografias})
 
 def nova_imagem(request):
-    if not request.user.is_authenticated:
-        messages.error(request, 'Usuário não reconhecido, por favor faça login')
-        return redirect('login')
    
+    
     
     form = FotografiaForms
     if request.method == 'POST':
@@ -48,6 +46,9 @@ def nova_imagem(request):
             form.save()
             messages.success(request, 'Fotografia Publicada')
             return redirect('index')
+    if not request.user.is_authenticated:
+        messages.error(request, 'Usuário não reconhecido, por favor faça login')
+        return redirect('login')
 
 
     return render(request, 'galeria/nova_imagem.html', {'form':form})
